@@ -1,0 +1,101 @@
+/* ===== General Styling ===== */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f2f5;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2 {
+    text-align: center;
+    color: #333;
+}
+
+/* ===== Buttons ===== */
+button, a.btn {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    margin: 5px 2px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    text-decoration: none;
+}
+
+button:hover, a.btn:hover {
+    background-color: #0056b3;
+}
+
+/* ===== Links ===== */
+a {
+    text-decoration: none;
+    color: #007BFF;
+}
+
+a:hover {
+    opacity: 0.8;
+}
+
+/* ===== Task List Styling ===== */
+ul {
+    list-style-type: none;
+    padding: 0;
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+li {
+    background-color: #fff;
+    padding: 15px 20px;
+    margin-bottom: 12px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+li.completed {
+    background-color: #d4edda; /* Green for completed tasks */
+    color: #155724;
+}
+
+li.pending {
+    background-color: #fff3cd; /* Yellow for pending tasks */
+    color: #856404;
+}
+
+/* ===== Form Styling ===== */
+form {
+    max-width: 500px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+}
+
+input[type="text"], textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+/* ===== Centering & Spacing ===== */
+.container {
+    padding: 20px;
+}
+
+.text-center {
+    text-align: center;
+}
