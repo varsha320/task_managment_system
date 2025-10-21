@@ -2,130 +2,37 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Task Management System</title>
 
-  <!-- Fonts & Bootstrap -->
+  <!-- Fonts & CSS -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Custom Styles -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-
-  <style>
-    /* ========== LAYOUT & BACKGROUND ========== */
-    body {
-      background: linear-gradient(135deg, #eef2ff, #ffffff) !important;
-      min-height: 100vh;
-      font-family: 'Inter', sans-serif;
-      overflow-x: hidden;
-    }
-
-    .container {
-      max-width: 800px;
-    }
-
-    /* ========== ANIMATIONS ========== */
-    .list-group {
-      animation: fadeIn 0.6s ease;
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* ========== TASK ITEMS ========== */
-    .list-group-item {
-      transition: all 0.25s ease;
-      border-radius: 10px;
-      margin-bottom: 10px;
-    }
-
-    .list-group-item:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
-    }
-
-    /* ========== HEADER ========== */
-    h1 {
-      font-size: 2rem;
-    }
-
-    /* ========== BUTTONS ========== */
-    .btn {
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 10px rgba(99, 102, 241, 0.2);
-    }
-
-    /* ========== MOBILE OPTIMIZATION ========== */
-    @media (max-width: 768px) {
-      .container {
-        padding: 1.5rem;
-      }
-
-      h1 {
-        font-size: 1.6rem;
-      }
-
-      .list-group-item {
-        flex-direction: column;
-        align-items: flex-start !important;
-      }
-
-      .list-group-item .d-flex.gap-2 {
-        margin-top: 0.75rem;
-      }
-
-      .btn-sm {
-        font-size: 0.9rem;
-        padding: 6px 10px;
-      }
-
-      .btn.rounded-pill {
-        font-size: 0.95rem;
-        padding: 8px 18px;
-      }
-
-      .text-center.py-5 {
-        padding: 3rem 1rem !important;
-      }
-    }
-
-    /* ========== SMALL SCREENS ========== */
-    @media (max-width: 480px) {
-      h1 {
-        font-size: 1.4rem;
-      }
-
-      .btn.rounded-pill {
-        padding: 6px 14px;
-      }
-    }
-  </style>
 </head>
 
-<body>
+<body class="bg-light" style="font-family: 'Inter', sans-serif;">
   <div class="container py-5">
 
     <!-- Header -->
-    <div class="d-flex justify-content-between align-items-center mb-4 border-bottom pb-3 flex-wrap gap-3">
-      <h1 class="fw-bold text-primary mb-0">📝 Task Manager</h1>
-      <a href="/add" class="btn btn-primary rounded-pill px-4 shadow-sm flex-shrink-0">➕ Add Task</a>
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-center mb-4 border-bottom pb-3 text-center text-md-start">
+      <h1 class="fw-bold text-primary mb-3 mb-md-0">
+        <i class="bi bi-journal-check me-2 text-primary"></i> Task Manager
+      </h1>
+      <a href="/add" class="btn btn-primary rounded-pill px-4 shadow-sm">
+        <i class="bi bi-plus-lg me-1"></i> Add Task
+      </a>
     </div>
 
     <!-- Task List -->
     {% if tasks %}
-      <div class="list-group shadow-lg rounded-3">
+      <div class="list-group shadow-sm rounded-3">
         {% for task in tasks %}
-          <div class="list-group-item border-0 d-flex justify-content-between align-items-start p-3
+          <div class="list-group-item border-0 border-bottom d-flex flex-column flex-sm-row justify-content-between align-items-start align-items-sm-center p-3
               {% if task['status'] == 'Completed' %} bg-success-subtle {% else %} bg-warning-subtle {% endif %}">
             
-            <div class="me-3 flex-grow-1">
+            <!-- Task Info -->
+            <div class="me-sm-3 flex-grow-1 text-wrap">
               <h5 class="mb-1 fw-semibold {% if task['status'] == 'Completed' %} text-decoration-line-through text-muted {% endif %}">
                 {{ task['title'] }}
               </h5>
@@ -133,23 +40,32 @@
               <span class="badge bg-secondary">{{ task['status'] }}</span>
             </div>
 
-            <div class="d-flex gap-2">
+            <!-- Action Buttons -->
+            <div class="d-flex gap-2 mt-2 mt-sm-0">
               {% if task['status'] != 'Completed' %}
-                <a href="/complete/{{ task['_id'] }}" class="btn btn-outline-success btn-sm rounded-circle" title="Mark as complete">✅</a>
+                <a href="/complete/{{ task['_id'] }}" class="btn btn-outline-success btn-sm rounded-circle" title="Mark as complete">
+                  <i class="bi bi-check-lg"></i>
+                </a>
               {% endif %}
-              <a href="/delete/{{ task['_id'] }}" class="btn btn-outline-danger btn-sm rounded-circle" title="Delete task">❌</a>
+              <a href="/delete/{{ task['_id'] }}" class="btn btn-outline-danger btn-sm rounded-circle" title="Delete task">
+                <i class="bi bi-x-lg"></i>
+              </a>
             </div>
           </div>
         {% endfor %}
       </div>
     {% else %}
+      <!-- Empty State -->
       <div class="text-center py-5 text-muted">
         <p class="fs-5 mb-3">No tasks yet.</p>
-        <a href="/add" class="btn btn-outline-primary rounded-pill px-4">Add your first task</a>
+        <a href="/add" class="btn btn-outline-primary">
+          <i class="bi bi-plus-circle me-1"></i> Add your first task
+        </a>
       </div>
     {% endif %}
   </div>
 
+  <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
