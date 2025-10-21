@@ -1,11 +1,13 @@
 from flask import Flask, render_template, request, redirect
 from pymongo import MongoClient
 from bson import ObjectId
+import os
 
 app = Flask(__name__)
 
-# MongoDB connection (local)
-client= MongoClient("mongodb://localhost:27017/")
+# MongoDB connection (use atlas)
+MONGO_URI=os.getenv("mongodb+srv://task_managmeny_system:<db_password>@cluster0.kk06hhq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
+client= MongoClient("MONGO_URI")
 db = client["task_management"]
 tasks = db["tasks"]
 
