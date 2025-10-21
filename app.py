@@ -5,11 +5,15 @@ import os
 
 app = Flask(__name__)
 
-# MongoDB connection (use atlas)
-MONGO_URI=os.getenv("mongodb+srv://task_managmeny_system:<db_password>@cluster0.kk06hhq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0")
-client= MongoClient("MONGO_URI")
+# MongoDB connection using environment variable
+MONGO_URI = os.environ.get("MONGO_URI")  # Must match the key in Render
+if not MONGO_URI:
+    raise Exception("MONGO_URI not set in environment variables")
+
+client = MongoClient(MONGO_URI)
 db = client["task_management"]
 tasks = db["tasks"]
+
 
 @app.route('/')
 def index():
