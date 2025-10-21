@@ -1,209 +1,187 @@
 /* ========== GLOBAL RESET ========== */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Inter", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", "Poppins", sans-serif;
 }
 
-/* ========== BODY / BACKGROUND ========== */
+/* ========== BODY ========== */
 body {
-  background: linear-gradient(135deg, #f8fafc, #eef2ff);
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+    background: linear-gradient(135deg, #fff7f0, #fde2e4, #e9d5ff);
+    min-height: 100vh;
+    background-attachment: fixed;
+    color: #2d2d2d;
 }
 
 /* ========== CONTAINER ========== */
 .container {
-  background: rgba(255, 255, 255, 0.9);
-  border-radius: 16px;
-  padding: 40px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
-  backdrop-filter: blur(10px);
-  transition: 0.3s ease;
-  animation: fadeIn 0.6s ease;
-}
-
-/* ========== ANIMATIONS ========== */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 18px;
+    padding: 40px;
+    box-shadow: 0 10px 40px rgba(255, 170, 200, 0.15);
+    backdrop-filter: blur(12px);
+    transition: all 0.3s ease;
 }
 
 /* ========== HEADINGS ========== */
 h1, h2 {
-  font-weight: 600;
-  color: #1e293b;
-  letter-spacing: 0.3px;
+    font-weight: 600;
+    letter-spacing: 0.4px;
+    color: #5b21b6;
 }
 
 /* ========== BUTTONS ========== */
 .btn {
-  border-radius: 10px;
-  font-weight: 500;
-  transition: all 0.25s ease;
+    border-radius: 12px;
+    font-weight: 500;
+    transition: all 0.25s ease;
 }
 
-/* --- Primary Button --- */
+/* Primary (Playful Purple-Orange Gradient) */
 .btn-primary {
-  background: linear-gradient(90deg, #2563eb, #3b82f6);
-  border: none;
-  color: #fff;
+    background: linear-gradient(90deg, #f97316, #f43f5e, #a855f7);
+    border: none;
+    color: white;
 }
-
 .btn-primary:hover {
-  background: linear-gradient(90deg, #1d4ed8, #2563eb);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+    background: linear-gradient(90deg, #ea580c, #e11d48, #9333ea);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(244, 63, 94, 0.3);
 }
 
-/* --- Success Button --- */
-.btn-success {
-  background: linear-gradient(90deg, #16a34a, #22c55e);
-  border: none;
-  color: #fff;
-}
-
-.btn-success:hover {
-  background: linear-gradient(90deg, #15803d, #16a34a);
-}
-
-/* --- Danger Button --- */
-.btn-danger {
-  background: linear-gradient(90deg, #dc2626, #ef4444);
-  border: none;
-  color: #fff;
-}
-
-.btn-danger:hover {
-  background: linear-gradient(90deg, #b91c1c, #dc2626);
-}
-
-/* --- Secondary Button --- */
+/* Secondary (Neutral Gray) */
 .btn-secondary {
-  background: #94a3b8;
-  border: none;
-  color: #fff;
+    background: #9ca3af;
+    border: none;
+    color: white;
 }
-
 .btn-secondary:hover {
-  background: #64748b;
+    background: #6b7280;
+    transform: translateY(-1px);
 }
 
-/* Small Button Variant */
-.btn-sm {
-  font-size: 0.8rem;
-  padding: 5px 10px;
+/* Outline Buttons */
+.btn-outline-success, .btn-outline-danger {
+    border-width: 1.8px;
+    transition: 0.2s ease;
+}
+
+.btn-outline-success {
+    color: #16a34a;
+    border-color: #16a34a;
+}
+.btn-outline-success:hover {
+    background-color: #16a34a;
+    color: white;
+}
+
+.btn-outline-danger {
+    color: #dc2626;
+    border-color: #dc2626;
+}
+.btn-outline-danger:hover {
+    background-color: #dc2626;
+    color: white;
+}
+
+/* Small Buttons (icon buttons) */
+.btn-sm i {
+    font-size: 0.9rem;
+}
+.btn-sm:hover i {
+    transform: scale(1.1);
+    transition: 0.2s ease;
 }
 
 /* ========== LIST ITEMS (TASKS) ========== */
 .list-group-item {
-  border: none;
-  margin-bottom: 12px;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04);
-  background: #f9fafb;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+    border: none;
+    margin-bottom: 12px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    background: #fff8f5;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .list-group-item:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.07);
 }
 
-/* ========== STATUS TAGS ========== */
+/* Subtle color coding for task states */
+.bg-warning-subtle {
+    background-color: #fff1da !important;
+}
+.bg-success-subtle {
+    background-color: #dcfce7 !important;
+}
+
+/* Status Badge */
 .badge {
-  border-radius: 8px;
-  font-size: 0.75rem;
-  padding: 6px 10px;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    padding: 6px 10px;
+    font-weight: 500;
 }
-
 .bg-secondary {
-  background: #e2e8f0 !important;
-  color: #334155;
+    background: #f3e8ff !important;
+    color: #6b21a8;
 }
 
-/* ========== FORM STYLING ========== */
+/* ========== FORMS ========== */
 form {
-  background: #ffffff;
-  border-radius: 16px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
-  padding: 2rem;
-  animation: fadeIn 0.6s ease;
+    background: #ffffff;
+    border-radius: 18px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
 }
 
 .form-control {
-  border-radius: 10px;
-  border: 1px solid #cbd5e1;
-  padding: 10px 12px;
-  transition: 0.2s ease;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    transition: 0.25s ease;
+    font-size: 0.95rem;
 }
 
 .form-control:focus {
-  border-color: #3b82f6;
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+    border-color: #f43f5e;
+    box-shadow: 0 0 0 3px rgba(244, 63, 94, 0.15);
 }
 
-/* ========== CARDS (ADD PAGE) ========== */
-.card {
-  background: rgba(255, 255, 255, 0.95);
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-  padding: 2.5rem;
-  width: 100%;
-  max-width: 480px;
-  animation: fadeIn 0.6s ease;
+/* ========== BADGE + ICON ALIGNMENT FIXES ========== */
+i {
+    vertical-align: middle;
 }
 
 /* ========== FOOTER (OPTIONAL) ========== */
 footer {
-  text-align: center;
-  color: #94a3b8;
-  margin-top: auto;
-  font-size: 0.9rem;
-  padding: 1rem 0;
+    text-align: center;
+    color: #9ca3af;
+    margin-top: 40px;
+    font-size: 0.9rem;
 }
 
-/* ========== RESPONSIVE DESIGN ========== */
+/* ========== RESPONSIVE ========== */
 @media (max-width: 768px) {
-  .container {
-    padding: 25px;
-  }
+    .container {
+        padding: 25px;
+    }
 
-  .card {
-    padding: 1.8rem;
-  }
+    h1 {
+        font-size: 1.8rem;
+    }
 
-  h1 {
-    font-size: 1.8rem;
-  }
+    .list-group-item {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+    }
 
-  h2 {
-    font-size: 1.6rem;
-  }
+    .btn-sm {
+        padding: 6px 8px;
+    }
 
-  .btn {
-    font-size: 0.95rem;
-    padding: 0.6rem 1rem;
-  }
-}
-
-@media (max-width: 480px) {
-  h1, h2 {
-    font-size: 1.4rem;
-  }
-
-  .card {
-    padding: 1.5rem;
-  }
-
-  .list-group-item {
-    font-size: 0.9rem;
-  }
-
-  .btn {
-    font-size: 0.9rem;
-    padding: 0.5rem 0.9rem;
-  }
+    .d-flex.gap-2 {
+        justify-content: flex-end;
+        width: 100%;
+    }
 }
