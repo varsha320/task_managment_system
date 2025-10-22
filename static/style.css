@@ -6,182 +6,165 @@
     font-family: "Inter", "Poppins", sans-serif;
 }
 
-/* ========== BODY ========== */
 body {
-    background: linear-gradient(135deg, #fff7f0, #fde2e4, #e9d5ff);
+    background: linear-gradient(135deg, #f9f9fb, #eef2ff);
     min-height: 100vh;
-    background-attachment: fixed;
-    color: #2d2d2d;
+    color: #1f2937;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
 }
 
 /* ========== CONTAINER ========== */
 .container {
-    background: rgba(255, 255, 255, 0.85);
-    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 16px;
     padding: 40px;
-    box-shadow: 0 10px 40px rgba(255, 170, 200, 0.15);
-    backdrop-filter: blur(12px);
-    transition: all 0.3s ease;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+    backdrop-filter: blur(10px);
+    transition: 0.3s ease;
 }
 
 /* ========== HEADINGS ========== */
 h1, h2 {
     font-weight: 600;
-    letter-spacing: 0.4px;
-    color: #5b21b6;
+    color: #1e1b4b;
+    letter-spacing: 0.3px;
 }
 
 /* ========== BUTTONS ========== */
 .btn {
-    border-radius: 12px;
+    border-radius: 50px;
     font-weight: 500;
     transition: all 0.25s ease;
+    letter-spacing: 0.3px;
 }
 
-/* Primary (Playful Purple-Orange Gradient) */
 .btn-primary {
-    background: linear-gradient(90deg, #f97316, #f43f5e, #a855f7);
+    background: linear-gradient(90deg, #4f46e5, #6366f1);
     border: none;
     color: white;
 }
+
 .btn-primary:hover {
-    background: linear-gradient(90deg, #ea580c, #e11d48, #9333ea);
+    background: linear-gradient(90deg, #4338ca, #4f46e5);
     transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(244, 63, 94, 0.3);
+    box-shadow: 0 4px 12px rgba(79, 70, 229, 0.3);
 }
 
-/* Secondary (Neutral Gray) */
-.btn-secondary {
-    background: #9ca3af;
-    border: none;
-    color: white;
-}
-.btn-secondary:hover {
-    background: #6b7280;
-    transform: translateY(-1px);
+.btn-outline-secondary {
+    border-color: #9ca3af;
+    color: #374151;
 }
 
-/* Outline Buttons */
-.btn-outline-success, .btn-outline-danger {
-    border-width: 1.8px;
-    transition: 0.2s ease;
-}
-
-.btn-outline-success {
-    color: #16a34a;
-    border-color: #16a34a;
-}
-.btn-outline-success:hover {
-    background-color: #16a34a;
-    color: white;
+.btn-outline-secondary:hover {
+    background: #e5e7eb;
+    border-color: #9ca3af;
+    color: #1f2937;
 }
 
 .btn-outline-danger {
-    color: #dc2626;
-    border-color: #dc2626;
-}
-.btn-outline-danger:hover {
-    background-color: #dc2626;
-    color: white;
+    border-color: #ef4444;
+    color: #ef4444;
 }
 
-/* Small Buttons (icon buttons) */
-.btn-sm i {
-    font-size: 0.9rem;
+.btn-outline-danger:hover {
+    background: #ef4444;
+    color: #fff;
 }
-.btn-sm:hover i {
-    transform: scale(1.1);
-    transition: 0.2s ease;
+
+.btn-outline-success {
+    border-color: #10b981;
+    color: #10b981;
+}
+
+.btn-outline-success:hover {
+    background: #10b981;
+    color: #fff;
 }
 
 /* ========== LIST ITEMS (TASKS) ========== */
 .list-group-item {
     border: none;
-    margin-bottom: 12px;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
-    background: #fff8f5;
+    border-radius: 12px !important;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.04);
+    background: #ffffff;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .list-group-item:hover {
     transform: translateY(-3px);
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.07);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
 }
 
-/* Subtle color coding for task states */
-.bg-warning-subtle {
-    background-color: #fff1da !important;
-}
 .bg-success-subtle {
-    background-color: #dcfce7 !important;
+    background: #ecfdf5 !important;
 }
 
-/* Status Badge */
+.bg-warning-subtle {
+    background: #fef9c3 !important;
+}
+
+/* ========== BADGES ========== */
 .badge {
     border-radius: 8px;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     padding: 6px 10px;
-    font-weight: 500;
-}
-.bg-secondary {
-    background: #f3e8ff !important;
-    color: #6b21a8;
 }
 
-/* ========== FORMS ========== */
+.bg-secondary {
+    background: #e5e7eb !important;
+    color: #374151;
+}
+
+/* ========== FORM STYLES ========== */
 form {
     background: #ffffff;
-    border-radius: 18px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
 }
 
 .form-control {
-    border-radius: 10px;
-    border: 1px solid #ddd;
-    transition: 0.25s ease;
-    font-size: 0.95rem;
+    border-radius: 8px;
+    border: 1px solid #d1d5db;
+    transition: 0.2s ease;
+    padding: 10px 14px;
 }
 
 .form-control:focus {
-    border-color: #f43f5e;
-    box-shadow: 0 0 0 3px rgba(244, 63, 94, 0.15);
-}
-
-/* ========== BADGE + ICON ALIGNMENT FIXES ========== */
-i {
-    vertical-align: middle;
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
 }
 
 /* ========== FOOTER (OPTIONAL) ========== */
 footer {
     text-align: center;
-    color: #9ca3af;
+    color: #888;
     margin-top: 40px;
     font-size: 0.9rem;
 }
 
-/* ========== RESPONSIVE ========== */
+/* ========== RESPONSIVE DESIGN ========== */
 @media (max-width: 768px) {
     .container {
         padding: 25px;
+        box-shadow: none;
+        background: transparent;
     }
 
     h1 {
-        font-size: 1.8rem;
+        font-size: 1.7rem;
+    }
+
+    form {
+        box-shadow: none;
+        padding: 20px;
+    }
+
+    .btn {
+        width: 100%;
     }
 
     .list-group-item {
-        flex-direction: column !important;
-        align-items: flex-start !important;
-    }
-
-    .btn-sm {
-        padding: 6px 8px;
-    }
-
-    .d-flex.gap-2 {
-        justify-content: flex-end;
-        width: 100%;
+        padding: 14px 16px;
     }
 }
