@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Add Task</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Add Task • Task Manager</title>
 
   <!-- Fonts & CSS -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
@@ -12,34 +13,36 @@
 </head>
 
 <body class="bg-light" style="font-family: 'Inter', sans-serif;">
-  <div class="container py-5">
+  <div class="container py-4 px-3 px-md-5">
 
     <!-- Header -->
-    <div class="text-center mb-4">
-      <h2 class="fw-bold text-primary">
-        <i class="bi bi-plus-circle-dotted text-primary me-2"></i> Add New Task
+    <div class="d-flex flex-column flex-md-row justify-content-between align-items-center mb-4 border-bottom pb-3 text-center text-md-start">
+      <h2 class="fw-bold text-primary mb-3 mb-md-0">
+        <i class="bi bi-plus-circle me-2 text-primary"></i> Add New Task
       </h2>
-      <p class="text-secondary small mb-0">Plan, organize, and crush your goals 🚀</p>
+      <a href="/" class="btn btn-outline-secondary rounded-pill px-4 w-100 w-md-auto">
+        <i class="bi bi-arrow-left-short me-1"></i> Back
+      </a>
     </div>
 
-    <!-- Add Task Form -->
-    <form method="POST" class="bg-white p-4 rounded shadow-sm mx-auto" style="max-width: 500px;">
+    <!-- Form -->
+    <form method="POST" class="bg-white p-4 p-md-5 rounded-4 shadow-sm mx-auto" style="max-width: 500px;">
       <div class="mb-3">
-        <label class="form-label fw-semibold">Title</label>
+        <label class="form-label fw-medium">Title</label>
         <input type="text" name="title" class="form-control" placeholder="Enter task title..." required>
       </div>
 
       <div class="mb-3">
-        <label class="form-label fw-semibold">Description</label>
-        <textarea name="desc" class="form-control" rows="4" placeholder="What do you need to do?" required></textarea>
+        <label class="form-label fw-medium">Description</label>
+        <textarea name="desc" class="form-control" rows="4" placeholder="Add task details..." required></textarea>
       </div>
 
-      <div class="text-center mt-4">
-        <button type="submit" class="btn btn-primary px-4">
-          <i class="bi bi-check-circle me-1"></i> Add Task
+      <div class="text-center mt-4 d-flex flex-column flex-sm-row gap-2 justify-content-center">
+        <button type="submit" class="btn btn-primary rounded-pill px-4">
+          <i class="bi bi-check-lg me-1"></i> Add Task
         </button>
-        <a href="/" class="btn btn-secondary ms-2">
-          <i class="bi bi-arrow-left me-1"></i> Back
+        <a href="/" class="btn btn-outline-secondary rounded-pill px-4">
+          <i class="bi bi-x-lg me-1"></i> Cancel
         </a>
       </div>
     </form>
